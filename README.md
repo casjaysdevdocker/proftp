@@ -19,8 +19,8 @@ dockermgr update proftp
 ## Install and run container
   
 ```shell
-dockerHome="/var/lib/srv/$USER/docker/casjaysdevdocker/proftp/proftp/latest/rootfs"
-mkdir -p "/var/lib/srv/$USER/docker/proftp/rootfs"
+dockerHome="/srv/$USER/docker/casjaysdevdocker/proftp/proftp/latest/rootfs"
+mkdir -p "/srv/$USER/docker/proftp/rootfs"
 git clone "https://github.com/dockermgr/proftp" "$HOME/.local/share/CasjaysDev/dockermgr/proftp"
 cp -Rfva "$HOME/.local/share/CasjaysDev/dockermgr/proftp/rootfs/." "$dockerHome/"
 docker run -d \
@@ -47,8 +47,8 @@ services:
       - TZ=America/New_York
       - HOSTNAME=proftp
     volumes:
-      - "/var/lib/srv/$USER/docker/casjaysdevdocker/proftp/proftp/latest/rootfs/data:/data:z"
-      - "/var/lib/srv/$USER/docker/casjaysdevdocker/proftp/proftp/latest/rootfs/config:/config:z"
+      - "/srv/$USER/docker/casjaysdevdocker/proftp/proftp/latest/rootfs/data:/data:z"
+      - "/srv/$USER/docker/casjaysdevdocker/proftp/proftp/latest/rootfs/config:/config:z"
     ports:
       - 80:80
     restart: always
